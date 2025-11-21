@@ -94,7 +94,7 @@ export class CronService {
     // -------------------------------------------------
     // 5 Dakikalık cron (her dakika)
     // -------------------------------------------------
-    @Cron('0 */5 * * * *') 
+    @Cron('0 */1 * * * *') 
     handleEveryMinute() {
         this.logger.log('5 Dakikalık API testi çalıştı');
         this.testApiInternal();
