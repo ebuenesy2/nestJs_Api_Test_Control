@@ -18,6 +18,13 @@ npm run start
 npm run start:dev
 ```
 
+
+## Url
+
+```
+https://nest-js-api-test-control.vercel.app/cron/error
+```
+
 # Url
 
 ## GET
