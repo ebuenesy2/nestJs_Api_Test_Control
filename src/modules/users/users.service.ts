@@ -4,8 +4,9 @@ import * as path from 'path';
 
 @Injectable()
 export class UsersService {
-    private filePath = path.join(process.cwd(), 'src/public', 'users.json');
 
+    private filePath = path.join(process.cwd(), 'temp', 'users.json');
+    
     private readJson() {
         const data = fs.readFileSync(this.filePath, 'utf8');
         return JSON.parse(data);
