@@ -13,7 +13,7 @@ export class UsersService {
     }
 
     private writeJson(data: any) {
-        fs.writeFileSync(this.filePath, JSON.stringify(data, null, 2));
+        fs.writeFileSync(this.filePath, JSON.stringify(this.filePath, null, 2));
     }
     
     // ------------------------------------------------
