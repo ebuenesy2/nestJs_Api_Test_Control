@@ -80,20 +80,11 @@ export class UsersService {
     // Yeni kullanıcı ekle
     // ------------------------------------------------
     addUser(userData: any) {
-        const users = this.readJson();
-
-        const newUser = {
-            id: users.length > 0 ? users[users.length - 1].id + 1 : 1,
-            ...userData
-        };
-
-        users.push(newUser);
-        this.writeJson(users);
-
-        return {
-            title: "Yeni Kullanıcı Eklendi",
-            data: newUser
-        };
+      const users = this.readJson(); 
+      const newUser = { id: users.length > 0 ? users[users.length - 1].id + 1 : 1, ...userData }; 
+      users.push(newUser); 
+      this.writeJson(users); 
+      return { title: "Yeni Kullanıcı Eklendi", data: newUser };
     }
 
     // ------------------------------------------------
