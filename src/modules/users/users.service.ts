@@ -7,15 +7,28 @@ export class UsersService {
 
     private filePath = path.join(process.cwd(), 'temp', 'users.json');
     
+    private ensureFileExists() {
+        const dir = path.dirname(this.filePath);
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir, { recursive: true });
+        }
+        if (!fs.existsSync(this.filePath)) {
+            fs.writeFileSync(this.filePath, '[]', 'utf8'); // boş array ile başlat
+        }
+    }
+
+
     private readJson() {
+        this.ensureFileExists();
         const data = fs.readFileSync(this.filePath, 'utf8');
         return JSON.parse(data);
     }
-
-    private writeJson(data: any) {
-        fs.writeFileSync(this.filePath, JSON.stringify(this.filePath, null, 2));
-    }
     
+    private writeJson(data: any) {
+        this.ensureFileExists();
+        fs.writeFileSync(this.filePath, JSON.stringify(data, null, 2), 'utf8');
+    }
+        
     // ------------------------------------------------
     // Tüm kullanıcılar
     // ------------------------------------------------
